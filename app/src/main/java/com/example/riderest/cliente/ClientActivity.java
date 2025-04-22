@@ -13,13 +13,24 @@ import com.example.riderest.databinding.ActivityClientBinding;
 
 public class ClientActivity extends AppCompatActivity {
     ActivityClientBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityClientBinding.inflate(getLayoutInflater());
+        binding = ActivityClientBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        replaceFragment(new Inicio());
+        // Obtener el fragmento a mostrar desde el intent
+        String destino = getIntent().getStringExtra("fragmentDestino");
+
+        if ("inicio".equals(destino)) {
+            replaceFragment(new Inicio());
+        } else {
+            // Fragmento por defecto
+            replaceFragment(new Inicio());
+        }
+
+        // Navegación inferior
         binding.bottonNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.inicioCliente) {
@@ -28,16 +39,17 @@ public class ClientActivity extends AppCompatActivity {
                 replaceFragment(new Map());
             } else if (id == R.id.historialCliente) {
                 replaceFragment(new ClienteReserva());
-            }else if(id==R.id.perfilCliente){
+            } else if (id == R.id.perfilCliente) {
                 replaceFragment(new ClientePerfil());
             }
             return true;
         });
     }
-    private void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout,fragment);
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
 }
