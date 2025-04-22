@@ -1,14 +1,24 @@
 package com.example.riderest.cliente;
 
+import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.NumberPicker;
+import android.widget.TextView;
 
 import com.example.riderest.R;
+
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,7 +70,85 @@ public class Inicio extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio, container, false);
+        // Inflamos el layout del fragment
+        View view = inflater.inflate(R.layout.fragment_inicio, container, false);
+
+        // Referencia al EditText
+        EditText etFecha = view.findViewById(R.id.etFecha);
+
+        etFecha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        getContext(),
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                String fecha = dayOfMonth + "/" + (month + 1) + "/" + year;
+                                etFecha.setText(fecha);
+                            }
+                        }, year, month, day);
+                datePickerDialog.show();
+            }
+
+
+
+        });
+
+        EditText etCantidad = view.findViewById(R.id.etCantidad);
+
+        etCantidad.setOnClickListener(v -> {
+            View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_cliente_inicio_cantpersonas, null);
+
+
+            TextView tvAdultos = dialogView.findViewById(R.id.tvAdultos);
+            TextView tvNinos = dialogView.findViewById(R.id.tvNinos);
+
+            Button btnMinusAdultos = dialogView.findViewById(R.id.btnMinusAdultos);
+            Button btnPlusAdultos = dialogView.findViewById(R.id.btnPlusAdultos);
+            Button btnMinusNinos = dialogView.findViewById(R.id.btnMinusNinos);
+            Button btnPlusNinos = dialogView.findViewById(R.id.btnPlusNinos);
+            Button btnAplicar = dialogView.findViewById(R.id.btnAplicar);
+
+            AlertDialog dialog = new AlertDialog.Builder(getContext()).setView(dialogView).create();
+
+            btnPlusAdultos.setOnClickListener(v1 -> {
+                int count = Integer.parseInt(tvAdultos.getText().toString());
+                tvAdultos.setText(String.valueOf(count + 1));
+            });
+
+            btnMinusAdultos.setOnClickListener(v1 -> {
+                int count = Integer.parseInt(tvAdultos.getText().toString());
+                if (count > 1) tvAdultos.setText(String.valueOf(count - 1)); // mínimo 1 adulto
+            });
+
+            btnPlusNinos.setOnClickListener(v1 -> {
+                int count = Integer.parseInt(tvNinos.getText().toString());
+                tvNinos.setText(String.valueOf(count + 1));
+            });
+
+            btnMinusNinos.setOnClickListener(v1 -> {
+                int count = Integer.parseInt(tvNinos.getText().toString());
+                if (count > 0) tvNinos.setText(String.valueOf(count - 1));
+            });
+
+            btnAplicar.setOnClickListener(v1 -> {
+                String resultado =
+                        tvAdultos.getText() + " adulto(s) · " +
+                        tvNinos.getText() + " niño(s)";
+                etCantidad.setText(resultado);
+                dialog.dismiss();
+            });
+
+            dialog.show();
+        });
+
+
+        return view;
     }
 }

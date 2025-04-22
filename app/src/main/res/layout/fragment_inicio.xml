@@ -1,18 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4CAF50"
-    tools:context=".cliente.Inicio">
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context=".cliente.Inicio"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Encabezado amarillo -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment Inicio"
-        android:textSize="20dp"
-        android:layout_gravity="center"/>
+        android:orientation="vertical"
+        android:background="#FFC107"
+        android:padding="8dp"
+        >
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ride Rest"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"/>
+
+            <ImageButton
+                android:id="@+id/userIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_notifications_24"
+                android:background="@null"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="3">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Favoritos"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Mis reservas"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Historial"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Campos de entrada -->
+    <EditText
+        android:id="@+id/etDestino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el destino"
+        android:drawableStart="@drawable/baseline_search_24"
+        android:padding="12dp"
+        android:layout_marginTop="24dp"
+        />
+
+    <EditText
+        android:id="@+id/etFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Seleccione las fechas"
+        android:focusable="false"
+        android:inputType="none"
+        android:drawableStart="@drawable/baseline_calendar_month_24"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <EditText
+        android:id="@+id/etCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cantidad de visitantes"
+        android:focusable="false"
+        android:inputType="none"
+        android:drawableStart="@drawable/baseline_person_24"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#003366"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>
