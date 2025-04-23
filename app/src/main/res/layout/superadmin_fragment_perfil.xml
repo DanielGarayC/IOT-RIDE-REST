@@ -3,28 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:paddingBottom="72dp"> <!-- evita que el BottomNavigation oculte el botón -->
 
-    <!-- Encabezado -->
+    <!-- 🔵 Título -->
+    <TextView
+        android:id="@+id/tvMiCuenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mi cuenta"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 🟨 Encabezado con nombre, rol e imagen -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/amarillo"
         android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tvMiCuenta">
 
         <ImageView
             android:id="@+id/ivFotoPerfil"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:src="@drawable/default_user"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_bg"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="16dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/circle_bg" />
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
             android:id="@+id/tvNombreUsuario"
@@ -49,18 +62,31 @@
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Icono editar -->
+    <!-- 📝 Datos personales (Card + Icono editar) -->
+    <TextView
+        android:id="@+id/tvDatosPersonales"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Datos Personales"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/btnEditar"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_margin="12dp"
         android:src="@drawable/baseline_edit_24"
         android:contentDescription="Editar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header" />
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/tvDatosPersonales"
+        app:layout_constraintBottom_toBottomOf="@id/tvDatosPersonales"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Card datos -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardDatos"
         android:layout_width="0dp"
@@ -68,7 +94,7 @@
         android:layout_margin="16dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="2dp"
-        app:layout_constraintTop_toBottomOf="@id/btnEditar"
+        app:layout_constraintTop_toBottomOf="@id/tvDatosPersonales"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -76,28 +102,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:gravity="center_horizontal">
+            android:padding="12dp">
 
-            <EditText android:id="@+id/etNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nombre completo" android:enabled="false" />
-            <EditText android:id="@+id/etTipoDoc" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tipo de documento" android:enabled="false" />
-            <EditText android:id="@+id/etNumDoc" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Número de documento" android:enabled="false" />
-            <EditText android:id="@+id/etFechaNac" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Fecha de nacimiento" android:enabled="false" />
-            <EditText android:id="@+id/etCorreo" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Correo" android:enabled="false" />
-            <EditText android:id="@+id/etTelefono" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Teléfono" android:enabled="false" />
-            <EditText android:id="@+id/etDomicilio" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Domicilio" android:enabled="false" />
-
+            <EditText android:id="@+id/etNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nombre completo: Nilo Rikel Cori Ramos" android:enabled="false" />
+            <EditText android:id="@+id/etTipoDoc" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tipo de documento: DNI" android:enabled="false" />
+            <EditText android:id="@+id/etNumDoc" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Número de documento: 74582136" android:enabled="false" />
+            <EditText android:id="@+id/etFechaNac" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Fecha de nacimiento: 15/06/2004" android:enabled="false" />
+            <EditText android:id="@+id/etCorreo" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Correo electrónico: nilokori@pucp.edu.pe" android:enabled="false" />
+            <EditText android:id="@+id/etTelefono" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Teléfono: +51 987 654 321" android:enabled="false" />
+            <EditText android:id="@+id/etDomicilio" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dirección: Jr. Las Gardenias 124, Lima" android:enabled="false" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Opciones seguridad -->
+    <!-- 🔒 Seguridad -->
+    <TextView
+        android:id="@+id/tvSeguridad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Seguridad"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintTop_toBottomOf="@id/cardDatos"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
         android:id="@+id/seguridad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/cardDatos"
+        app:layout_constraintTop_toBottomOf="@id/tvSeguridad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -124,17 +161,18 @@
             android:textColor="@android:color/black"/>
     </LinearLayout>
 
-    <!-- Cerrar sesión -->
+    <!-- 🔴 Cerrar sesión -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCerrarSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cerrar Sesión"
-        android:layout_margin="16dp"
         android:textColor="@android:color/black"
         android:backgroundTint="@color/amarillo"
         app:cornerRadius="8dp"
+        android:layout_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/seguridad"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
