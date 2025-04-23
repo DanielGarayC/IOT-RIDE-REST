@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvBienvenido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Bienvenido!"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Subtítulo -->
+    <TextView
+        android:id="@+id/tvSubtitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Accede a todos nuestros servicios y empieza a disfrutar tu experiencia con nosotros."
+        android:textSize="14sp"
+        android:textColor="#888888"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvBienvenido"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Correo -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCorreo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Correo electrónico"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Contraseña -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"
+        app:endIconMode="password_toggle"
+        app:layout_constraintTop_toBottomOf="@id/tilCorreo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Recordarme y Olvidé contraseña -->
+    <LinearLayout
+        android:id="@+id/llRecordar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tilPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:gravity="space_between">
+
+        <CheckBox
+            android:id="@+id/cbRecordarme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recuérdame" />
+
+        <TextView
+            android:id="@+id/tvOlvide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Olvidé mi contraseña"
+            android:textColor="#FF004E63" />
+    </LinearLayout>
+
+    <!-- Botón Iniciar sesión -->
+    <Button
+        android:id="@+id/btnIniciar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Iniciar sesión"
+        android:backgroundTint="#FFC500"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/llRecordar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Registro -->
+    <TextView
+        android:id="@+id/tvRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿No tienes una cuenta? Regístrate aquí"
+        android:textColor="#FFC500"
+        app:layout_constraintTop_toBottomOf="@id/btnIniciar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <!-- Postula -->
+    <TextView
+        android:id="@+id/tvPostula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Quieres  Trabajar como Taxista? Postula aquí"
+        android:textColor="#FFC500"
+        app:layout_constraintTop_toBottomOf="@id/tvRegistro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Términos y condiciones -->
+    <TextView
+        android:id="@+id/tvTerminos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Al iniciar sesión aceptas nuestros\nTérminos y Condiciones de Uso"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:textColor="#777777"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
