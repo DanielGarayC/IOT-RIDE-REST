@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.riderest.cliente.ClientActivity;
+import com.example.riderest.superadmin.SuperAdminActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     }*/
     Button btnIrSegunda;
+    Button btnSA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnIrSegunda = findViewById(R.id.btnIrSegunda);
+        btnSA = findViewById(R.id.btnSA);
+
+        btnSA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SuperAdminActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnIrSegunda.setOnClickListener(new View.OnClickListener() {
             @Override

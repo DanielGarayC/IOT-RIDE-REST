@@ -27,6 +27,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ir a segunda actividad" />
+        <Button
+            android:id="@+id/btnSA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ir a modo superadmin" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Encabezado -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/amarillo"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivFotoPerfil"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/default_user"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_bg" />
+
+        <TextView
+            android:id="@+id/tvNombreUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Hola, Nilo Cori"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toEndOf="@id/ivFotoPerfil"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="SuperAdmin"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreUsuario"
+            app:layout_constraintStart_toStartOf="@id/tvNombreUsuario"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Icono editar -->
+    <ImageView
+        android:id="@+id/btnEditar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="12dp"
+        android:src="@drawable/baseline_edit_24"
+        android:contentDescription="Editar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <!-- Card datos -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardDatos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:layout_constraintTop_toBottomOf="@id/btnEditar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
+
+            <EditText android:id="@+id/etNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nombre completo" android:enabled="false" />
+            <EditText android:id="@+id/etTipoDoc" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tipo de documento" android:enabled="false" />
+            <EditText android:id="@+id/etNumDoc" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Número de documento" android:enabled="false" />
+            <EditText android:id="@+id/etFechaNac" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Fecha de nacimiento" android:enabled="false" />
+            <EditText android:id="@+id/etCorreo" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Correo" android:enabled="false" />
+            <EditText android:id="@+id/etTelefono" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Teléfono" android:enabled="false" />
+            <EditText android:id="@+id/etDomicilio" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Domicilio" android:enabled="false" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Opciones seguridad -->
+    <LinearLayout
+        android:id="@+id/seguridad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/cardDatos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCambiarContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cambiar contraseña"
+            android:icon="@drawable/baseline_lock_24"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            android:gravity="start|center_vertical"
+            android:textColor="@android:color/black"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerificarCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Verificar correo"
+            android:icon="@drawable/baseline_email_24"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            android:gravity="start|center_vertical"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+    <!-- Cerrar sesión -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:layout_margin="16dp"
+        android:textColor="@android:color/black"
+        android:backgroundTint="@color/amarillo"
+        app:cornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@id/seguridad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
