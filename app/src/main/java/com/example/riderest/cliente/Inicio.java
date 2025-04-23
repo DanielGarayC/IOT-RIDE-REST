@@ -2,6 +2,7 @@ package com.example.riderest.cliente;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -146,6 +147,17 @@ public class Inicio extends Fragment {
             });
 
             dialog.show();
+        });
+
+        Button btnAbrirDetalle;
+        btnAbrirDetalle = view.findViewById(R.id.btnBuscar);
+        btnAbrirDetalle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // desde un fragment, usamos getActivity() como contexto
+                Intent intent = new Intent(getActivity(), HotelActivity.class);
+                startActivity(intent);
+            }
         });
 
 
