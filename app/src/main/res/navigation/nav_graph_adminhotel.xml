@@ -5,8 +5,37 @@
     android:id="@+id/nav_graph_adminhotel"
     app:startDestination="@id/nav_hotel_perfil">
     <fragment
-        android:id="@+id/nav_hotel_perfil"
+        android:id="@+id/nav_hotel_inicio"
         android:name="com.example.riderest.adminhotel.AdminHotelPerfilFragment"
         android:label="AdminHotelPerfilFragment"
         tools:layout="@layout/adminhotel_fragment_perfil"/>
+        <action
+            android:id="@+id/action_adminHotelInicio_to_adminHotelHotel"
+            app:destination="@id/nav_hotel_hotel" />
+        <action
+            android:id="@+id/action_adminHotelHotel_to_adminHotelReportes"
+            app:destination="@id/nav_hotel_reportes" />
+        <action
+            android:id="@+id/action_adminHotelReportes_to_adminHotelPerfil"
+            app:destination="@id/nav_hotel_perfil" />
+
+    <fragment
+        android:id="@+id/nav_hotel_perfil"
+        android:name="com.example.riderest.adminhotel.AdminHotelPerfilFragment"
+        android:label="AdminHotelPerfilFragment"
+        tools:layout="@layout/adminhotel_fragment_perfil" >
+        <action
+            android:id="@+id/action_superAdminPerfilFragment_to_superAdminChPasswdFragment"
+            app:destination="@id/chPasswd" />
+        <action
+            android:id="@+id/action_superAdminPerfilFragment_to_superAdminVerifyAddFragment"
+            app:destination="@id/verifyAddress" />
+        <action
+            android:id="@+id/action_superAdminPerfilFragment_to_superAdminGestionUsuariosFragment"
+            app:destination="@id/nav_usuarios" />
+        <action
+            android:id="@+id/action_superAdminPerfilFragment_to_superAdminReportesFragment"
+            app:destination="@id/nav_reportes" />
+    </fragment>
 </navigation>
+
