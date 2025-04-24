@@ -1,6 +1,8 @@
 package com.example.riderest.cliente;
 
-public class Hotel {
+import java.io.Serializable;
+
+public class Hotel implements Serializable {
     private String nombre;
     private float rating;
     private String puntuacion;

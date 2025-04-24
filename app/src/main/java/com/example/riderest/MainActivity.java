@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.riderest.adminhotel.AdminHotelActivity;
 import com.example.riderest.cliente.ClientActivity;
 import com.example.riderest.superadmin.SuperAdminActivity;
 
@@ -30,12 +31,14 @@ public class MainActivity extends AppCompatActivity {
     }*/
     Button btnIrSegunda;
     Button btnSA;
+    Button btnAH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnAH = findViewById(R.id.btnAH);
         btnIrSegunda = findViewById(R.id.btnIrSegunda);
         btnSA = findViewById(R.id.btnSA);
 
@@ -51,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ClientActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnAH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AdminHotelActivity.class);
                 startActivity(intent);
             }
         });

@@ -7,15 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:orientation="vertical"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -27,11 +19,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ir a segunda actividad" />
+
         <Button
             android:id="@+id/btnSA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ir a modo superadmin" />
+
+        <Button
+            android:id="@+id/btnAH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ir a modo administrador de hotel" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

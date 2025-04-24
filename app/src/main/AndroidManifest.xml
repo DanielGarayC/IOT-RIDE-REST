@@ -13,10 +13,19 @@
         android:theme="@style/Theme.RideRest"
         tools:targetApi="31">
         <activity
+            android:name=".cliente.DetallesReserva"
+            android:exported="false" />
+        <activity
+            android:name=".cliente.HistorialEventos"
+            android:exported="false" />
+        <activity
             android:name=".cliente.ClientActivity"
             android:exported="false" />
         <activity
             android:name=".superadmin.SuperAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".adminhotel.AdminHotelActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

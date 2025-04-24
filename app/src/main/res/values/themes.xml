@@ -5,5 +5,8 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.RideRest" parent="Base.Theme.RideRest" />
-</resources>
+    <style name="Theme.RideRest" parent="Base.Theme.RideRest">
+
+    </style>
+
+    </resources>
