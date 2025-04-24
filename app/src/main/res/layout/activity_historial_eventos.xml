@@ -14,7 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#FFC107"
+        android:background="#A6FF9800"
         android:padding="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ride and Rest"
+            android:textColor="#282828"
             android:textStyle="bold"
             android:textSize="22sp"
             android:layout_gravity="center"/>
@@ -33,27 +34,60 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:weightSum="3">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFavoritos"
                 android:layout_width="wrap_content"
-                android:layout_height="37dp"
-                android:background="@drawable/rounded_button_yellow"
-                android:text="Favoritos" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:text="Favoritos"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:backgroundTint="#10FF9800"
+                app:cornerRadius="20dp"
+                app:strokeColor="#4E4E4E"
+                app:strokeWidth="1dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMisReservas"
                 android:layout_width="wrap_content"
-                android:layout_height="37dp"
-                android:layout_marginHorizontal="8dp"
-                android:background="@drawable/rounded_button_white"
-                android:text="Mis reservas" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:text="Mis Reservas"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:backgroundTint="#10FF9800"
+                app:cornerRadius="20dp"
+                app:strokeColor="#4E4E4E"
+                app:strokeWidth="1dp"
+                android:layout_marginStart="4dp"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnHistorial"
                 android:layout_width="wrap_content"
-                android:layout_height="37dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
                 android:text="Historial"
-                android:background="@drawable/rounded_button_yellow" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:backgroundTint="#10FF9800"
+                app:cornerRadius="20dp"
+                app:strokeColor="#4E4E4E"
+                app:strokeWidth="1dp"
+                android:layout_marginStart="4dp"/>
         </LinearLayout>
+
     </LinearLayout>
 
     <!-- Contenido scrollable (reservas) -->
@@ -90,15 +124,33 @@
                     <!-- TEXTO DE ESTADO ARRIBA DE LA IMAGEN -->
 
                     <!-- CONTENIDO EN HORIZONTAL: IMAGEN + DETALLES -->
-                    <TextView
-                        android:id="@+id/status"
-                        android:layout_width="126dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="4dp"
-                        android:text=" En progreso"
-                        android:textColor="#4CAF50"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal"
+                        android:paddingBottom="4dp">
+
+                        <TextView
+                            android:id="@+id/status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=" En progreso"
+                            android:textColor="#4CAF50"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/otroTexto"
+                            android:layout_width="98dp"
+                            android:layout_height="22dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="12dp"
+                            android:contentDescription="Descripción de la imagen"
+                            android:src="@drawable/estrellas" />
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -108,16 +160,16 @@
                         <!-- Imagen del hotel -->
 
                         <!-- Contenedor de los detalles del hotel -->
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/imageHotel"
                             android:layout_width="99dp"
                             android:layout_height="91dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginEnd="12dp"
-                            android:background="@drawable/ejemplo_hotel"
                             android:contentDescription="Imagen del hotel"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/hotel1" />
+                            android:src="@drawable/hotel1"
+                            app:shapeAppearanceOverlay="@style/RoundedImageView" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -153,35 +205,39 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="2dp"
-                                android:gravity="center">
-
+                                android:orientation="horizontal">
 
                                 <Button
                                     android:id="@+id/btnDetalles"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="38dp"
+                                    android:layout_weight="1"
                                     android:backgroundTint="#2382D9"
                                     android:text="Detalles"
                                     android:textColor="#FFFFFF"
                                     android:textSize="13sp"
-                                    android:layout_marginEnd="6dp"
-                                    android:paddingHorizontal="0dp" />
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="0dp"
+                                    android:gravity="center"
+                                    android:layout_marginStart="2dp"/>
 
                                 <Button
                                     android:id="@+id/btnTaxista"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="38dp"
+                                    android:layout_weight="1.5"
                                     android:backgroundTint="#E6911C"
                                     android:text="Solicitar Taxi"
                                     android:textColor="#FFFFFF"
                                     android:textSize="13sp"
-                                    android:layout_marginTop="0dp"
-                                    android:paddingHorizontal="20dp"/>
-
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="0dp"
+                                    android:gravity="center"
+                                    android:layout_marginStart="2dp"/>
 
                             </LinearLayout>
+
+
 
 
                             <Button

@@ -166,6 +166,13 @@ public class Inicio extends Fragment {
             }
         });
 
+        Button historialEventos = view.findViewById(R.id.HistorialEventos);
+        historialEventos.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), HistorialEventos.class);
+            startActivity(intent);
+        });
+
+
         return view;
     }
 }
