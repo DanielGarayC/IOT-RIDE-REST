@@ -29,7 +29,7 @@ public class HotelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel);
 
-        recyclerView = findViewById(R.id.recyclerHoteles); // Mueve esta línea aquí
+        /*recyclerView = findViewById(R.id.recyclerHoteles); // Mueve esta línea aquí
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         listaHoteles = new ArrayList<>();
@@ -49,7 +49,7 @@ public class HotelActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish(); // Cierra HotelActivity
             }
-        });
+        });*/
 
     }
 }

@@ -154,12 +154,17 @@ public class Inicio extends Fragment {
         btnAbrirDetalle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // desde un fragment, usamos getActivity() como contexto
-                Intent intent = new Intent(getActivity(), HotelActivity.class);
-                startActivity(intent);
+                // Crear una instancia del fragmento al que quieres ir
+                ClienteListaHoteles hotelFragment = new ClienteListaHoteles();
+
+                // Usar FragmentManager para reemplazar el fragmento actual
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frame_layout, hotelFragment) // R.id.fragment_container es el ID del contenedor del fragmento
+                        .addToBackStack(null) // Esto permite volver atrás con el botón "Back"
+                        .commit();
             }
         });
-
 
         return view;
     }

@@ -3,6 +3,7 @@ package com.example.riderest.cliente;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -17,9 +18,16 @@ import java.util.List;
 public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHolder> {
 
     private List<Hotel> listaHoteles;
+    private OnHotelClickListener listener;
 
-    public HotelAdapter(List<Hotel> listaHoteles) {
+    // Interfaz para manejar el evento de clic en el botón
+    public interface OnHotelClickListener {
+        void onVerDetallesClick(Hotel hotel);
+    }
+
+    public HotelAdapter(List<Hotel> listaHoteles, OnHotelClickListener listener) {
         this.listaHoteles = listaHoteles;
+        this.listener = listener;
     }
 
     @NonNull
@@ -39,6 +47,13 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         holder.txtFechas.setText(hotel.getFechas());
         holder.txtPrecio.setText(hotel.getPrecio());
         holder.imgHotel.setImageResource(hotel.getImagen());
+
+        // Configurar el listener para el botón de ver detalles
+        holder.btnVerDetalles.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onVerDetallesClick(hotel);
+            }
+        });
     }
 
     @Override
@@ -50,6 +65,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         TextView txtNombre, txtPuntuacion, txtUbicacion, txtFechas, txtPrecio;
         RatingBar ratingBar;
         ImageView imgHotel;
+        Button btnVerDetalles;
 
         public HotelViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,6 +76,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
             txtPrecio = itemView.findViewById(R.id.txtPrecio);
             ratingBar = itemView.findViewById(R.id.ratingBar);
             imgHotel = itemView.findViewById(R.id.imgHotel);
+            btnVerDetalles = itemView.findViewById(R.id.btnVerDetalles);
         }
     }
 }
