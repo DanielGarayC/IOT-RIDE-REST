@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -63,6 +64,19 @@ public class SuperAdminGestionUsuariosFragment extends Fragment {
             chip.setChecked(false);
         }
         selected.setChecked(true);
+
+        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) binding.tvListaUsuarios.getLayoutParams();
+
+        if (binding.chipTaxistas.isChecked()) {
+            binding.btnSolicitudes.setVisibility(View.VISIBLE);
+            params.topToBottom = binding.btnSolicitudes.getId(); // 👉 Ancla a btnSolicitudes
+        } else {
+            binding.btnSolicitudes.setVisibility(View.GONE);
+            params.topToBottom = binding.btnRegistrarUsuario.getId(); // 👉 Ancla a btnRegistrarUsuario
+        }
+
+        binding.tvListaUsuarios.setLayoutParams(params);
+
     }
 
     @Override

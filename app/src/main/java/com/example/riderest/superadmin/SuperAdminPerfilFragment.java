@@ -23,22 +23,20 @@ public class SuperAdminPerfilFragment extends Fragment {
         binding = SuperadminFragmentPerfilBinding.bind(view);
 
         binding.btnEditar.setOnClickListener(v -> {
-            habilitarCampos(true);
+            binding.etNombre.setEnabled(true);
+            binding.etTipoDoc.setEnabled(true);
+            binding.etNumDoc.setEnabled(true);
+            binding.etFechaNac.setEnabled(true);
+            binding.etCorreo.setEnabled(true);
+            binding.etTelefono.setEnabled(true);
+            binding.etDomicilio.setEnabled(true);
         });
 
         // Por si quieres deshabilitar después de guardar
         // binding.btnGuardar.setOnClickListener(v -> habilitarCampos(false));
     }
 
-    private void habilitarCampos(boolean habilitar) {
-        binding.etNombre.setEnabled(habilitar);
-        binding.etTipoDoc.setEnabled(habilitar);
-        binding.etNumDoc.setEnabled(habilitar);
-        binding.etFechaNac.setEnabled(habilitar);
-        binding.etCorreo.setEnabled(habilitar);
-        binding.etTelefono.setEnabled(habilitar);
-        binding.etDomicilio.setEnabled(habilitar);
-    }
+
 
     @Override
     public void onDestroyView() {
