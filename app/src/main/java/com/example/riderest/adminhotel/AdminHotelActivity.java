@@ -11,7 +11,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
-
+import androidx.navigation.fragment.NavHostFragment;
 import com.example.riderest.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -22,6 +22,12 @@ public class AdminHotelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adminhotel);
 
+        BottomNavigationView bottomNav = findViewById(R.id.Hotel_nav);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.Hotel_cont);
+        NavController navController = navHostFragment.getNavController();
+        NavigationUI.setupWithNavController(bottomNav, navController);
+        NavigationUI.setupWithNavController(bottomNav, navController);
 
     }
 }

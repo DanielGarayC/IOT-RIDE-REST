@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_hotel_inicio"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/nav_hotel_hotel"
+        android:icon="@drawable/baseline_room_service_24_black"
+        android:title="Hotel" />
+
+    <item
+        android:id="@+id/nav_hotel_reportes"
+        android:icon="@drawable/baseline_description_24"
+        android:title="Reportes" />
+
+    <item
+        android:id="@+id/nav_hotel_perfil"
+        android:icon="@drawable/baseline_person_outline_24"
+        android:title="Perfil" />
+</menu>
