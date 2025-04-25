@@ -18,6 +18,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.example.riderest.R;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.Calendar;
 
@@ -76,6 +77,8 @@ public class Inicio extends Fragment {
 
         // Referencia al EditText
         EditText etFecha = view.findViewById(R.id.etFecha);
+
+
 
         etFecha.setOnClickListener(new View.OnClickListener() {
             @Override
