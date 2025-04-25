@@ -60,7 +60,9 @@ public class DatosHuesped extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.adminhotel_fragment_datos_huesped, container, false);
+        // Inflamos el layout del fragment
+        View view = inflater.inflate(R.layout.adminhotel_fragment_datos_huesped, container, false);
+
+        return view;
     }
 }
