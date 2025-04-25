@@ -9,8 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioGroup;
 
 import com.example.riderest.R;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +68,9 @@ public class ClienteListaHoteles extends Fragment implements HotelAdapter.OnHote
     RecyclerView recyclerView;
     List<Hotel> listaHoteles;
 
+    private Button btnOrdenar;
+    private BottomSheetDialog bottomSheetDialog;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,8 +92,79 @@ public class ClienteListaHoteles extends Fragment implements HotelAdapter.OnHote
         HotelAdapter adapter = new HotelAdapter(listaHoteles,this);
         recyclerView.setAdapter(adapter);
 
+
+        // Inicializar vistas
+        btnOrdenar = view.findViewById(R.id.btnSort);
+
+        // Configurar el BottomSheet
+        setupBottomSheet();
+
+        // Configurar listener para mostrar el BottomSheet
+        btnOrdenar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.show();
+            }
+        });
+
         return view;
     }
+
+    private void setupBottomSheet() {
+        // Importante: usar getContext() o requireContext() en lugar de "this"
+        bottomSheetDialog = new BottomSheetDialog(requireContext());
+
+        // Importante: usar getLayoutInflater() del fragmento
+        View bottomSheetView = getLayoutInflater().inflate(R.layout.cliente_boton_ordenar_hoteles, null);
+        bottomSheetDialog.setContentView(bottomSheetView);
+
+        // Configurar el RadioGroup dentro del BottomSheet
+        RadioGroup radioGroup = bottomSheetView.findViewById(R.id.radio_group_ordenar);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rb_puntuacion) {
+                    // Ordenar por puntuación
+                    ordenarPorPuntuacion();
+                } else if (checkedId == R.id.rb_precio_menor) {
+                    // Ordenar por precio de menor a mayor
+                    ordenarPorPrecioMenorAMayor();
+                } else if (checkedId == R.id.rb_precio_mayor) {
+                    // Ordenar por precio de mayor a menor
+                    ordenarPorPrecioMayorAMenor();
+                }
+
+                // Cerrar el BottomSheet después de seleccionar una opción (opcional)
+                bottomSheetDialog.dismiss();
+            }
+        });
+    }
+
+    // Métodos para implementar la lógica de ordenamiento
+    private void ordenarPorPuntuacion() {
+        // Implementa la lógica para ordenar los elementos por puntuación
+        // Por ejemplo, ordenar tu adaptador o lista de datos y notificar al RecyclerView
+    }
+
+    private void ordenarPorPrecioMenorAMayor() {
+        // Implementa la lógica para ordenar por precio ascendente
+    }
+
+    private void ordenarPorPrecioMayorAMenor() {
+        // Implementa la lógica para ordenar por precio descendente
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Limpiar recursos
+        if (bottomSheetDialog != null && bottomSheetDialog.isShowing()) {
+            bottomSheetDialog.dismiss();
+        }
+    }
+
+
+
 
     @Override
     public void onVerDetallesClick(Hotel hotel) {
