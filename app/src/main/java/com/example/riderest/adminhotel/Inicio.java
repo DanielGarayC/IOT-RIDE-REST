@@ -1,15 +1,26 @@
 package com.example.riderest.adminhotel;
 
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.riderest.R;
+import com.example.riderest.cliente.ClienteListaHoteles;
+import com.example.riderest.cliente.HistorialEventos;
 import com.example.riderest.databinding.AdminhotelFragmentPerfilBinding;
+
+import java.util.Calendar;
 
 public class Inicio extends Fragment {
 
@@ -20,10 +31,24 @@ public class Inicio extends Fragment {
         super(R.layout.adminhotel_fragment_inicio);
     }
 
-    @Override
+
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.adminhotel_fragment_inicio, container, false);
+        // Inflamos el layout del fragment
+        View view = inflater.inflate(R.layout.fragment_inicio, container, false);
+
+        // Referencia al EditText
+        EditText etFecha = view.findViewById(R.id.etFecha);
+
+
+        Button DatosHuesped = view.findViewById(R.id.a1);
+        DatosHuesped.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), HistorialEventos.class);
+            startActivity(intent);
+        });
+
+
+        return view;
     }
 }

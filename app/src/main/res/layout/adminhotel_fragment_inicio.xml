@@ -65,7 +65,7 @@
             tools:layout_editor_absoluteY="141dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="380dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:gravity="center_vertical"
@@ -81,9 +81,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vincenzo Perales"
+                    android:text="Vincenzo Perales                           "
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Ver"
+                    android:textSize="9sp" />
             </LinearLayout>
 
             <!-- Fecha y enlace -->
@@ -120,6 +127,7 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/a2"
         app:layout_constraintTop_toBottomOf="@id/a1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -142,7 +150,7 @@
             tools:layout_editor_absoluteY="141dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="380dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:gravity="center_vertical"
@@ -158,9 +166,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nilo Cori"
+                    android:text="Vincenzo Perales                           "
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Ver"
+                    android:textSize="9sp" />
             </LinearLayout>
 
             <!-- Fecha y enlace -->
@@ -171,7 +186,7 @@
 
                 <!-- Fecha -->
                 <TextView
-                    android:id="@+id/fechaCheckIn1"
+                    android:id="@+id/fechaCheckIn2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -182,7 +197,7 @@
 
                 <!-- Texto clickeable -->
                 <TextView
-                    android:id="@+id/definirHoraLlegada1"
+                    android:id="@+id/definirHoraLlegada2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"

@@ -41,6 +41,8 @@ public class AdminHotelActivity extends AppCompatActivity {
             replaceFragment(new Inicio());
         }
 
+
+
         // Navegación inferior
         binding.bottonNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
