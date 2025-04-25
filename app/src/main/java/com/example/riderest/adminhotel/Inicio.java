@@ -36,15 +36,12 @@ public class Inicio extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflamos el layout del fragment
-        View view = inflater.inflate(R.layout.fragment_inicio, container, false);
-
-        // Referencia al EditText
-        EditText etFecha = view.findViewById(R.id.etFecha);
+        View view = inflater.inflate(R.layout.adminhotel_fragment_inicio, container, false);
 
 
-        Button DatosHuesped = view.findViewById(R.id.a1);
+        Button DatosHuesped = view.findViewById(R.id.button1);
         DatosHuesped.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), HistorialEventos.class);
+            Intent intent = new Intent(getActivity(), DatosHuesped.class);
             startActivity(intent);
         });
 
