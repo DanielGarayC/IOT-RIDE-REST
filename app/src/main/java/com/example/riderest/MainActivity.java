@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.riderest.adminhotel.AdminHotelActivity;
 import com.example.riderest.cliente.ClientActivity;
+import com.example.riderest.login.LoginActivity;
 import com.example.riderest.superadmin.SuperAdminActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnIrSegunda;
     Button btnSA;
     Button btnAH;
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         btnAH = findViewById(R.id.btnAH);
         btnIrSegunda = findViewById(R.id.btnIrSegunda);
         btnSA = findViewById(R.id.btnSA);
+        btnLogin = findViewById(R.id.btnLogin);
 
         btnSA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,5 +68,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }

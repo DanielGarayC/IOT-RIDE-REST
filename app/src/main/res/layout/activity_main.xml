@@ -32,6 +32,12 @@
             android:layout_height="wrap_content"
             android:text="Ir a modo administrador de hotel" />
 
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ir al login" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
