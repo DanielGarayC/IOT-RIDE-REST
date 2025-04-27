@@ -1,99 +1,170 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
     tools:context=".cliente.Inicio">
 
     <!-- Encabezado amarillo -->
     <LinearLayout
+        android:id="@+id/ly1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFC107"
         android:orientation="vertical"
-        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ride and Rest"
+                android:textColor="#282828"
+                android:textStyle="bold"
+                android:textSize="28dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="center" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chatcliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/amarillo"
+                app:icon="@drawable/baseline_chat_24"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                android:padding="8dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/notificaciones_cliente"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="4dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/notificaciones_cliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/amarillo"
+                app:icon="@drawable/baseline_notifications_24_white"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                android:padding="8dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="horizontal"
+            android:gravity="center"
+
             android:weightSum="3">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Favoritos" />
+                android:backgroundTint="#FAD42F"
+                android:text="Favoritos"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:backgroundTint="#10FF9800"
+                app:cornerRadius="20dp"
+                app:strokeColor="#4E4E4E"
+                app:strokeWidth="1dp"
+                />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Reservas" />
+                android:backgroundTint="#FAD42F"
+                android:text="Reservas"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:backgroundTint="#10FF9800"
+                app:cornerRadius="20dp"
+                app:strokeColor="#4E4E4E"
+                app:strokeWidth="1dp"
+                />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/HistorialEventos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Historial" />
+                android:backgroundTint="#FAD42F"
+                android:text="Historial"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:backgroundTint="#10FF9800"
+                app:cornerRadius="20dp"
+                app:strokeColor="#4E4E4E"
+                app:strokeWidth="1dp"
+                />
+
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Campos de entrada -->
-    <EditText
-        android:id="@+id/etDestino"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese el destino"
-        android:drawableStart="@drawable/baseline_search_24"
-        android:padding="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginTop="24dp"
-        />
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:elevation="4dp"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@id/ly1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <EditText
+            android:id="@+id/etDestino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_search_24"
+            android:hint=" Ingrese el destino" />
 
-    <EditText
-        android:id="@+id/etFecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Seleccione las fechas"
-        android:focusable="false"
-        android:inputType="none"
-        android:drawableStart="@drawable/baseline_calendar_month_24"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        />
+        <EditText
+            android:id="@+id/etFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_calendar_month_24"
+            android:focusable="false"
+            android:hint=" Seleccione las fechas"
+            android:inputType="none" />
 
-    <EditText
-        android:id="@+id/etCantidad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Cantidad de visitantes"
-        android:focusable="false"
-        android:inputType="none"
-        android:drawableStart="@drawable/baseline_person_24"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        />
+        <EditText
+            android:id="@+id/etCantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_person_24"
+            android:focusable="false"
+            android:hint=" Cantidad de visitantes"
+            android:inputType="none" />
 
-    <Button
-        android:id="@+id/btnBuscar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Buscar"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#003366"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"/>
-</LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="12dp"
+            android:backgroundTint="#003366"
+            android:text="Buscar"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
