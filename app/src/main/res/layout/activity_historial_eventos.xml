@@ -9,40 +9,43 @@
     tools:context=".cliente.HistorialEventos">
 
     <!-- Encabezado superior -->
+
+    <!-- Contenido scrollable (reservas) -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="#FFCC00"
+        android:orientation="vertical"
         android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Ride and Rest"
             android:textColor="#282828"
-            android:textStyle="bold"
             android:textSize="22sp"
-            android:layout_gravity="center"/>
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
             android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
             android:weightSum="3">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnFavoritos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center"
+                android:layout_weight="1"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
                 android:text="Favoritos"
@@ -57,8 +60,9 @@
                 android:id="@+id/btnMisReservas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
                 android:text="Mis Reservas"
@@ -67,15 +71,15 @@
                 app:backgroundTint="#10FF9800"
                 app:cornerRadius="20dp"
                 app:strokeColor="#4E4E4E"
-                app:strokeWidth="1dp"
-                android:layout_marginStart="4dp"/>
+                app:strokeWidth="1dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnHistorial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
                 android:text="Historial"
@@ -84,13 +88,11 @@
                 app:backgroundTint="#10FF9800"
                 app:cornerRadius="20dp"
                 app:strokeColor="#4E4E4E"
-                app:strokeWidth="1dp"
-                android:layout_marginStart="4dp"/>
+                app:strokeWidth="1dp" />
         </LinearLayout>
 
     </LinearLayout>
 
-    <!-- Contenido scrollable (reservas) -->
     <ScrollView
         android:id="@+id/scrollArea"
         android:layout_width="0dp"
